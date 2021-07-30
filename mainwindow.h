@@ -44,6 +44,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
+
+    QString wordList [6];
+    void clearList();
     int french;
     int german;
     QString frenchTranslationUI;
@@ -62,7 +65,6 @@ private:
     QString nounPlurialTranslationUI;
     QString frenchNounTranslationUI;
     QString englishNounTranslationUI;
-
     QString pluralTranslation;
     QString germanPluralTranslation;
     QString frenchPluralTranslation;
@@ -71,4 +73,6 @@ private:
     QString frenchPluralTranslationUI;
 
 };
+
+enum wordIdList {id, german, english, french, article, plural};
 #endif // MAINWINDOW_H
