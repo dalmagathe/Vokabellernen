@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>85</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>255</red>
+        <green>85</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>85</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>255</red>
+        <green>85</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle">
+   <string>Vokabellernen</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../Pictures/German Flaf.jpg</normaloff>../../../Pictures/German Flaf.jpg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#mainFrame {
+border: 3px solid gray;
+border-radius: 40px;
+background: white;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/GermanTemplate.png);
+
+</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>160</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="mainPage">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Script MT Bold</family>
+            <pointsize>25</pointsize>
+            <weight>9</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 25pt &quot;Script MT Bold&quot;;
+</string>
+          </property>
+          <property name="text">
+           <string>What do you want to do ?</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QPushButton" name="btnAddWord">
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 0);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(72, 72, 72);
+    padding: 6px;
+	font: 75 12pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(72, 72, 72);
+    border-style: inset;
+}
+
+QPushButton
+    {
+       color:white;
+    }</string>
+            </property>
+            <property name="text">
+             <string>Add words</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnWordWindow">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color:rgb(255, 0, 0);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(218, 0, 0);
+    padding: 6px;
+	font: 75 12pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(218, 0, 0);
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>Guessing words</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnArticleWindow">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(218, 0, 0);
+    padding: 6px;
+	font: 75 12pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(218, 0, 0);
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>Guessing articles before a noun</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnVerbWindow">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(255, 170, 0);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(231, 154, 0);
+    padding: 6px;
+	font: 75 12pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(231, 154, 0);
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>Guessing plural form of a noun</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="addPage">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Script MT Bold</family>
+              <pointsize>15</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>English word</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="addGermanWord">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(170, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_3">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Script MT Bold</family>
+              <pointsize>15</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>German Word</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="addEnglishWord">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(170, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="addFrenchWord">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(170, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_2">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Script MT Bold</family>
+              <pointsize>15</pointsize>
+              <weight>9</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Fench Word</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBoxArticle">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+          </property>
+          <property name="title">
+           <string>Is it a noun ?</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="addArticle">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(170, 170, 0);
+}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="addPluralForm">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(170, 170, 0);
+}</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_12">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Plural form</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Article</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAdd">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(208, 208, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(156, 156, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(156, 156, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Add word to the database</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnReturAdd">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(208, 208, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(156, 156, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(156, 156, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Menu</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="checkPage">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>In which language do you want to translate ?</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton">
+          <property name="styleSheet">
+           <string notr="true">QRadioButton {
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>German to French and English</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_2">
+          <property name="styleSheet">
+           <string notr="true">QRadioButton {
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>French and English to German</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>English</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_7">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>German</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_5">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>French</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="checkEnglish">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(182, 61, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="checkFrench">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(182, 61, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="checkGerman">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(182, 61, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGenerate">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(200, 67, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(200, 67, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Generate</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(200, 67, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(200, 67, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Check</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(200, 67, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(200, 67, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Menu</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="checkPageArticle">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetFixedSize</enum>
+          </property>
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>10</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="frenchArticleTranslation">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(255, 85, 127);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_10">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Noun</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Article</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="nounTranslation">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(255, 85, 127);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="articleTranslation">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(255, 85, 127);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_11">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>French</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="generateNoun">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 127);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(186, 62, 93);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color: rgb(186, 62, 93);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Generate</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="checkArticleTranslation">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 127);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(186, 62, 93);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color: rgb(186, 62, 93);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Check</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="menuArtcileTranslation">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 127);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(186, 62, 93);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color: rgb(186, 62, 93);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Menu</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetFixedSize</enum>
+          </property>
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>10</number>
+          </property>
+          <property name="verticalSpacing">
+           <number>15</number>
+          </property>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_16">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>French Word</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLineEdit" name="germanPluralForm">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(85, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>German Word</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_15">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	font: 75 15pt &quot;Script MT Bold&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Plural form</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="pluralForm">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(85, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="frenchPluralForm">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(85, 170, 0);
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="generatePluralBtn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(99, 198, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(76, 152, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(76, 152, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Generate</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="checkGeneralBtn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(99, 198, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(76, 152, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(76, 152, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Check</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="menuPluralBtn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(99, 198, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(76, 152, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(76, 152, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Menu</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>160</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelStatusBar">
+      <property name="styleSheet">
+       <string notr="true">font: 75 12pt &quot;Script MT Bold&quot;;
+</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
