@@ -45,7 +45,7 @@ private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
 
-    QString wordList [6];
+    QString wordList [9];
     void clearList();
     int french;
     int german;
@@ -74,5 +74,5 @@ private:
 
 };
 
-enum wordIdList {id, german, english, french, article, plural};
+enum wordIdList {id, germanBDD, germanUSER, englishBDD, englishUSER, frenchBDD, frenchUSER, article, plural};
 #endif // MAINWINDOW_H

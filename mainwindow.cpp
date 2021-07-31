@@ -7,7 +7,7 @@
 #include <string>
 #include <fstream>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", ""}
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", "", "", "", ""}
 {
     ui->setupUi(this);
 
@@ -90,9 +90,9 @@ void MainWindow::on_btnAdd_clicked()
 
         //Convert the text in the lines edit to a string
 
-        wordList[wordIdList::german] = ui->addGermanWord->text();
-        wordList[wordIdList::english] = ui->addEnglishWord->text();
-        wordList[wordIdList::french] = ui->addFrenchWord->text();
+        wordList[wordIdList::germanUSER] = ui->addGermanWord->text();
+        wordList[wordIdList::englishUSER] = ui->addEnglishWord->text();
+        wordList[wordIdList::frenchUSER] = ui->addFrenchWord->text();
         wordList[wordIdList::plural] = ui->addPluralForm->text();
 
         //Allow to manage data from SQL
@@ -102,7 +102,7 @@ void MainWindow::on_btnAdd_clicked()
         QSqlQuery qryCheckWordDB(database);
 
         qryCheckWordDB.prepare("SELECT idWord FROM words WHERE germanTranslation = :data");
-        qryCheckWordDB.bindValue(":data", wordList[wordIdList::german]);
+        qryCheckWordDB.bindValue(":data", wordList[wordIdList::germanUSER]);
         qryCheckWordDB.exec();
         qryCheckWordDB.first();
 
@@ -122,15 +122,15 @@ void MainWindow::on_btnAdd_clicked()
             wordList[wordIdList::plural] =  ui->addPluralForm->text();
 
             //Check if the user enter all words.
-            if (wordList[wordIdList::english] == "")
+            if (wordList[wordIdList::englishUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the english word.");
             }
-            else if (wordList[wordIdList::french] == "")
+            else if (wordList[wordIdList::frenchUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the french word.");
             }
-            else if (wordList[wordIdList::german] == "")
+            else if (wordList[wordIdList::germanUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the german word.");
             }
@@ -141,15 +141,15 @@ void MainWindow::on_btnAdd_clicked()
             else
             {
                 qryWordNounInsert.prepare(QString("INSERT INTO words (frenchTranslation, englishTranslation, germanTranslation, articleNoun) VALUES (:addFrenchWord, :addEnglishWord, :addGermanWord, :addArticle)"));
-                qryWordNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::french]);
-                qryWordNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::english]);
-                qryWordNounInsert.bindValue(":addGermanWord", wordList[wordIdList::german]);
+                qryWordNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::frenchUSER]);
+                qryWordNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::englishUSER]);
+                qryWordNounInsert.bindValue(":addGermanWord", wordList[wordIdList::germanUSER]);
                 qryWordNounInsert.bindValue(":addArticle", wordList[wordIdList::article]);
 
                 qryNounInsert.prepare(QString("INSERT INTO noun (frenchNoun, englishNoun, article, germanNoun, nounPlurial) VALUES (:addFrenchWord, :addEnglishWord, :addArticle, :addGermanWord, :addPluralForm)"));
-                qryNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::french]);
-                qryNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::english]);
-                qryNounInsert.bindValue(":addGermanWord", wordList[wordIdList::german]);
+                qryNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::frenchUSER]);
+                qryNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::englishUSER]);
+                qryNounInsert.bindValue(":addGermanWord", wordList[wordIdList::germanUSER]);
                 qryNounInsert.bindValue(":addArticle", wordList[wordIdList::article]);
                 qryNounInsert.bindValue(":addPluralForm", wordList[wordIdList::plural]);
 
@@ -168,24 +168,24 @@ void MainWindow::on_btnAdd_clicked()
         else if(idWordToAdd == 0)
         {
             //Check if the user enter all words.
-            if (wordList[wordIdList::english] == "")
+            if (wordList[wordIdList::englishUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the english word.");
             }
-            else if (wordList[wordIdList::french] == "")
+            else if (wordList[wordIdList::frenchUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the french word.");
             }
-            else if (wordList[wordIdList::german] == "")
+            else if (wordList[wordIdList::germanUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the german word.");
             }
             else
             {
                 qryWordInsert.prepare(QString("INSERT INTO words (frenchTranslation, englishTranslation, germanTranslation) VALUES (:addFrenchWord, :addEnglishWord, :addGermanWord)"));
-                qryWordInsert.bindValue(":addFrenchWord", wordList[wordIdList::french]);
-                qryWordInsert.bindValue(":addEnglishWord", wordList[wordIdList::english]);
-                qryWordInsert.bindValue(":addGermanWord", wordList[wordIdList::german]);
+                qryWordInsert.bindValue(":addFrenchWord", wordList[wordIdList::frenchUSER]);
+                qryWordInsert.bindValue(":addEnglishWord", wordList[wordIdList::englishUSER]);
+                qryWordInsert.bindValue(":addGermanWord", wordList[wordIdList::germanUSER]);
 
                 //Message to indicate if the data has been inserted
                 if(qryWordInsert.exec())
