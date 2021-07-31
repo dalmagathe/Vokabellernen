@@ -367,8 +367,8 @@ void MainWindow::on_btnCheckArticle_clicked()
 {
     std::cout << "INSIDE" << std::endl;
     //Allow to save what the user has written
-    wordList[wordIdList::articleBDD] = ui->articleTranslation->text();
-    wordList[wordIdList::frenchBDD] = ui->frenchArticleTranslation->text();
+    wordList[wordIdList::articleUSER] = ui->articleTranslation->text();
+    wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text();
 
     if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
     {

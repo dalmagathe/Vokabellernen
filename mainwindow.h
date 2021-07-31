@@ -47,7 +47,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
-
     QString wordList [11];
     void clearList();
     int french;
