@@ -168,7 +168,7 @@ background: white;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="mainPage">
        <property name="styleSheet">
@@ -821,7 +821,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLineEdit" name="checkEnglish">
+           <widget class="QLineEdit" name="checkEnglishTranslate">
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     border-width: 2px;
@@ -832,7 +832,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="checkFrench">
+           <widget class="QLineEdit" name="checkFrenchTranslate">
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     border-width: 2px;
@@ -843,7 +843,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QLineEdit" name="checkGerman">
+           <widget class="QLineEdit" name="checkGermanTranslate">
             <property name="styleSheet">
              <string notr="true">QLineEdit {
     border-width: 2px;
@@ -856,7 +856,7 @@ QPushButton:pressed {
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="btnGenerate">
+         <widget class="QPushButton" name="btnGenerateTranslate">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 0);
@@ -878,7 +878,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="btnCheckTranslate">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 0);
@@ -900,7 +900,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="btnMenuTranslate">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 0);
@@ -1029,7 +1029,7 @@ QPushButton:pressed {
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="generateNoun">
+         <widget class="QPushButton" name="btnGenerateNounArticle">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 127);
@@ -1051,7 +1051,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="checkArticleTranslation">
+         <widget class="QPushButton" name="btnCheckArticle">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 127);
@@ -1073,7 +1073,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="menuArtcileTranslation">
+         <widget class="QPushButton" name="btnMenuArticle">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(255, 85, 127);
@@ -1202,7 +1202,7 @@ QPushButton:pressed {
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="generatePluralBtn">
+         <widget class="QPushButton" name="btnGenerateNounPlural">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(99, 198, 0);
@@ -1224,7 +1224,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="checkGeneralBtn">
+         <widget class="QPushButton" name="btnCheckPlural">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(99, 198, 0);
@@ -1246,7 +1246,7 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="menuPluralBtn">
+         <widget class="QPushButton" name="btnMenuPlural">
           <property name="styleSheet">
            <string notr="true">QPushButton {
     background-color: rgb(99, 198, 0);

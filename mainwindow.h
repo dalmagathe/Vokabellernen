@@ -28,51 +28,32 @@ private slots:
     void on_btnArticleWindow_clicked();
     void on_btnVerbWindow_clicked();
     void on_btnReturAdd_clicked();
-    void on_pushButton_2_clicked();
+    void on_btnMenuTranslate_clicked();
     void on_btnAdd_clicked();
     void on_radioButton_clicked();
     void on_radioButton_2_clicked();
-    void on_pushButton_clicked();
-    void on_btnGenerate_clicked();
-    void on_checkArticleTranslation_clicked();
-    void on_menuArtcileTranslation_clicked();
-    void on_generateNoun_clicked();
-    void on_menuPluralBtn_clicked();
-    void on_generatePluralBtn_clicked();
-    void on_checkGeneralBtn_clicked();
+
+    void on_btnCheckTranslate_clicked();
+    void on_btnGenerateTranslate_clicked();
+
+    void on_btnCheckArticle_clicked();
+    void on_btnMenuArticle_clicked();
+    void on_btnGenerateNounArticle_clicked();
+
+    void on_btnMenuPlural_clicked();
+    void on_btnGenerateNounPlural_clicked();
+    void on_btnCheckPlural_clicked();
 
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
 
-    QString wordList [9];
+    QString wordList [11];
     void clearList();
     int french;
     int german;
-    QString frenchTranslationUI;
-    QString englishTranslationUI;
-    QString germanTranslationUI;
-    QString frenchTranslation;
-    QString englishTranslation;
-    QString germanTranslation;
-    QString articleTranslation;
-    QString germanNounTranslation;
-    QString nounPlurialTranslation;
-    QString frenchNounTranslation;
-    QString englishNounTranslation;
-    QString articleTranslationUI;
-    QString germanNounTranslationUI;
-    QString nounPlurialTranslationUI;
-    QString frenchNounTranslationUI;
-    QString englishNounTranslationUI;
-    QString pluralTranslation;
-    QString germanPluralTranslation;
-    QString frenchPluralTranslation;
-    QString pluralTranslationUI;
-    QString germanPluralTranslationUI;
-    QString frenchPluralTranslationUI;
 
 };
 
-enum wordIdList {id, germanBDD, germanUSER, englishBDD, englishUSER, frenchBDD, frenchUSER, article, plural};
+enum wordIdList {id, germanBDD, germanUSER, englishBDD, englishUSER, frenchBDD, frenchUSER, articleBDD, articleUSER, pluralBDD, pluralUSER};
 #endif // MAINWINDOW_H

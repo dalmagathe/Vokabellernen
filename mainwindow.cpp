@@ -7,7 +7,7 @@
 #include <string>
 #include <fstream>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", "", "", "", ""}
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", "", "", "", "", "", ""}
 {
     ui->setupUi(this);
 
@@ -52,7 +52,7 @@ void MainWindow::on_btnReturAdd_clicked()
     ui->labelStatusBar->setText("");
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_btnMenuTranslate_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
     ui->labelStatusBar->setText("");
@@ -70,13 +70,13 @@ void MainWindow::on_btnVerbWindow_clicked()
     ui->labelStatusBar->setText("On the feature to guess the plural form of a noun");
 }
 
-void MainWindow::on_menuArtcileTranslation_clicked()
+void MainWindow::on_btnMenuArticle_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
     ui->labelStatusBar->setText("");
 }
 
-void MainWindow::on_menuPluralBtn_clicked()
+void MainWindow::on_btnMenuPlural_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
     ui->labelStatusBar->setText("");
@@ -93,7 +93,7 @@ void MainWindow::on_btnAdd_clicked()
         wordList[wordIdList::germanUSER] = ui->addGermanWord->text();
         wordList[wordIdList::englishUSER] = ui->addEnglishWord->text();
         wordList[wordIdList::frenchUSER] = ui->addFrenchWord->text();
-        wordList[wordIdList::plural] = ui->addPluralForm->text();
+        wordList[wordIdList::pluralUSER] = ui->addPluralForm->text();
 
         //Allow to manage data from SQL
         QSqlQuery qryWordNounInsert(database);
@@ -118,8 +118,8 @@ void MainWindow::on_btnAdd_clicked()
         //If the word to add is a noun the user nedd to add the article
         if (ui->groupBoxArticle->isChecked() && idWordToAdd == 0)
         {
-            wordList[wordIdList::article] = ui->addArticle->text();
-            wordList[wordIdList::plural] =  ui->addPluralForm->text();
+            wordList[wordIdList::articleUSER] = ui->addArticle->text();
+            wordList[wordIdList::pluralUSER] =  ui->addPluralForm->text();
 
             //Check if the user enter all words.
             if (wordList[wordIdList::englishUSER] == "")
@@ -134,7 +134,7 @@ void MainWindow::on_btnAdd_clicked()
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the german word.");
             }
-            else if (wordList[wordIdList::article] == "")
+            else if (wordList[wordIdList::articleUSER] == "")
             {
                 QMessageBox::information(this, "Data problem", "You need to insert the article.");
             }
@@ -144,14 +144,14 @@ void MainWindow::on_btnAdd_clicked()
                 qryWordNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::frenchUSER]);
                 qryWordNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::englishUSER]);
                 qryWordNounInsert.bindValue(":addGermanWord", wordList[wordIdList::germanUSER]);
-                qryWordNounInsert.bindValue(":addArticle", wordList[wordIdList::article]);
+                qryWordNounInsert.bindValue(":addArticle", wordList[wordIdList::articleUSER]);
 
                 qryNounInsert.prepare(QString("INSERT INTO noun (frenchNoun, englishNoun, article, germanNoun, nounPlurial) VALUES (:addFrenchWord, :addEnglishWord, :addArticle, :addGermanWord, :addPluralForm)"));
                 qryNounInsert.bindValue(":addFrenchWord", wordList[wordIdList::frenchUSER]);
                 qryNounInsert.bindValue(":addEnglishWord", wordList[wordIdList::englishUSER]);
                 qryNounInsert.bindValue(":addGermanWord", wordList[wordIdList::germanUSER]);
-                qryNounInsert.bindValue(":addArticle", wordList[wordIdList::article]);
-                qryNounInsert.bindValue(":addPluralForm", wordList[wordIdList::plural]);
+                qryNounInsert.bindValue(":addArticle", wordList[wordIdList::articleUSER]);
+                qryNounInsert.bindValue(":addPluralForm", wordList[wordIdList::pluralUSER]);
 
                 if(qryWordNounInsert.exec() && qryNounInsert.exec())
                 {
@@ -231,7 +231,7 @@ void MainWindow::on_radioButton_2_clicked()
     german = 0;
 }
 
-void MainWindow::on_btnGenerate_clicked()
+void MainWindow::on_btnGenerateTranslate_clicked()
 {
     if(database.open())
     {
@@ -258,11 +258,11 @@ void MainWindow::on_btnGenerate_clicked()
             query.exec();
             query.first();
 
-            frenchTranslation = query.value(0).toString();
-            englishTranslation = query.value(1).toString();
-            germanTranslation = query.value(2).toString();
+            wordList[wordIdList::frenchBDD] = query.value(0).toString();
+            wordList[wordIdList::englishBDD] = query.value(1).toString();
+            wordList[wordIdList::germanBDD] = query.value(2).toString();
 
-            ui->checkGerman->setText(germanTranslation);
+            ui->checkGermanTranslate->setText(wordList[wordIdList::germanBDD]);
 
         }
         else if(french == 1)
@@ -278,32 +278,34 @@ void MainWindow::on_btnGenerate_clicked()
             query.exec();
             query.first();
 
-            frenchTranslation = query.value(0).toString();
-            englishTranslation = query.value(1).toString();
-            germanTranslation = query.value(2).toString();
+            wordList[wordIdList::frenchBDD] = query.value(0).toString();
+            wordList[wordIdList::englishBDD] = query.value(1).toString();
+            wordList[wordIdList::germanBDD] = query.value(2).toString();
 
-            ui->checkFrench->setText(frenchTranslation);
+            ui->checkFrenchTranslate->setText(wordList[wordIdList::frenchBDD]);
         }
 
     }
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_btnCheckTranslate_clicked()
 {
-    //Allow to save what the user has written
-    frenchTranslationUI = ui->checkFrench->text();
-    englishTranslationUI = ui->checkEnglish->text();
-    germanTranslationUI = ui->checkGerman->text();
+    //Allow to save what the user has written    
+    wordList[wordIdList::frenchUSER] = ui->checkFrenchTranslate->text();
+    wordList[wordIdList::englishUSER] = ui->checkEnglishTranslate->text();
+    wordList[wordIdList::germanUSER] = ui->checkGermanTranslate->text();
+
 
     if(german == 1)
     {
-        if(frenchTranslationUI == frenchTranslation && englishTranslationUI == englishTranslation)
+        if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
         {
             QMessageBox::information(this, "Result", "Good job ! ");
-            ui->checkFrench->clear();
-            ui->checkEnglish->clear();
-            ui->checkGerman->clear();
-            fichier(germanTranslationUI);
+            ui->checkFrenchTranslate->clear();
+            ui->checkEnglishTranslate->clear();
+            ui->checkGermanTranslate->clear();
+            fichier(wordList[wordIdList::germanBDD]);
+            clearList();
         }
         else
         {
@@ -312,13 +314,14 @@ void MainWindow::on_pushButton_clicked()
     }
     else if(french == 1)
     {
-        if(germanTranslationUI == germanTranslation && englishTranslationUI == englishTranslation)
+        if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
         {
             QMessageBox::information(this, "Result", "Good job ! ");
-            ui->checkFrench->clear();
-            ui->checkEnglish->clear();
-            ui->checkGerman->clear();
-            fichier(germanTranslationUI);
+            ui->checkFrenchTranslate->clear();
+            ui->checkEnglishTranslate->clear();
+            ui->checkGermanTranslate->clear();
+            fichier(wordList[wordIdList::germanBDD]);
+            clearList();
         }
         else
         {
@@ -328,7 +331,7 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
-void MainWindow::on_generateNoun_clicked()
+void MainWindow::on_btnGenerateNounArticle_clicked()
 {
     if(database.open())
     {
@@ -352,27 +355,28 @@ void MainWindow::on_generateNoun_clicked()
         queryNoun.exec();
         queryNoun.first();
 
-        articleTranslation = queryNoun.value(0).toString();
-        germanNounTranslation = queryNoun.value(1).toString();
-        frenchNounTranslation = queryNoun.value(2).toString();
+        wordList[wordIdList::articleBDD] = queryNoun.value(0).toString();
+        wordList[wordIdList::germanBDD] = queryNoun.value(1).toString();
+        wordList[wordIdList::frenchBDD] = queryNoun.value(2).toString();
 
-
-        ui->nounTranslation->setText(germanNounTranslation);
+        ui->nounTranslation->setText(wordList[wordIdList::germanBDD]);
      }
 }
 
-void MainWindow::on_checkArticleTranslation_clicked()
+void MainWindow::on_btnCheckArticle_clicked()
 {
+    std::cout << "INSIDE" << std::endl;
     //Allow to save what the user has written
-    articleTranslationUI = ui->articleTranslation->text();
-    frenchNounTranslationUI = ui->frenchArticleTranslation->text();
+    wordList[wordIdList::articleBDD] = ui->articleTranslation->text();
+    wordList[wordIdList::frenchBDD] = ui->frenchArticleTranslation->text();
 
-    if(articleTranslationUI == articleTranslation && frenchNounTranslationUI == frenchNounTranslation)
+    if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
     {
         QMessageBox::information(this, "Result", "Correct translation");
         ui->articleTranslation->clear();
         ui->frenchArticleTranslation->clear();
-        fichier(germanNounTranslation);
+        fichier(wordList[wordIdList::germanBDD]);
+        clearList();
     }
     else
     {
@@ -380,7 +384,7 @@ void MainWindow::on_checkArticleTranslation_clicked()
     }
 }
 
-void MainWindow::on_generatePluralBtn_clicked()
+void MainWindow::on_btnGenerateNounPlural_clicked()
 {
     if(database.open())
     {
@@ -406,26 +410,26 @@ void MainWindow::on_generatePluralBtn_clicked()
         queryNoun.exec();
         queryNoun.first();
 
-        pluralTranslation = queryNoun.value(0).toString();
-        germanPluralTranslation = queryNoun.value(1).toString();
-        frenchPluralTranslation = queryNoun.value(2).toString();
+        wordList[wordIdList::pluralBDD] = queryNoun.value(0).toString();
+        wordList[wordIdList::germanBDD] = queryNoun.value(1).toString();
+        wordList[wordIdList::frenchBDD] = queryNoun.value(2).toString();
 
-
-        ui->germanPluralForm->setText(germanPluralTranslation);
+        ui->germanPluralForm->setText(wordList[wordIdList::germanBDD]);
      }
 }
 
-void MainWindow::on_checkGeneralBtn_clicked()
+void MainWindow::on_btnCheckPlural_clicked()
 {
     //Allow to save what the user has written
-    pluralTranslationUI = ui->pluralForm->text();
-    frenchPluralTranslationUI = ui->frenchPluralForm->text();
+    wordList[wordIdList::pluralUSER] = ui->pluralForm->text();
+    wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text();
 
-    if(pluralTranslationUI == pluralTranslation && frenchPluralTranslationUI == frenchPluralTranslation)
+    if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
     {
         QMessageBox::information(this, "Result", "Correct translation");
         ui->pluralForm->clear();
         ui->frenchPluralForm->clear();
+        clearList();
     }
     else
     {
@@ -450,4 +454,3 @@ int MainWindow::fichier(QString germanWord)
 
     return 0;
 }
-
