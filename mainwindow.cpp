@@ -34,28 +34,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//**************MENU PAGE**************//
 void MainWindow::on_btnAddWord_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
     ui->labelStatusBar->setText("On the feature add word");
-}
-
-void MainWindow::on_btnWordWindow_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-    ui->labelStatusBar->setText("On the feature to guess a word");
-}
-
-void MainWindow::on_btnReturAdd_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->labelStatusBar->setText("");
-}
-
-void MainWindow::on_btnMenuTranslate_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->labelStatusBar->setText("");
 }
 
 void MainWindow::on_btnArticleWindow_clicked()
@@ -70,13 +53,15 @@ void MainWindow::on_btnVerbWindow_clicked()
     ui->labelStatusBar->setText("On the feature to guess the plural form of a noun");
 }
 
-void MainWindow::on_btnMenuArticle_clicked()
+void MainWindow::on_btnWordWindow_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    ui->labelStatusBar->setText("");
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->labelStatusBar->setText("On the feature to guess a word");
 }
 
-void MainWindow::on_btnMenuPlural_clicked()
+
+//**************ADD WORD PAGE**************//
+void MainWindow::on_btnReturAdd_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
     ui->labelStatusBar->setText("");
@@ -210,14 +195,8 @@ void MainWindow::on_btnAdd_clicked()
 
 }
 
-void MainWindow::clearList()
-{
-    for (int i (0); i < 6; i++)
-    {
-        wordList[i] = "";
-    }
-}
 
+//**************GUESS TRANSLATION PAGE**************//
 //Allow to indicate if the user want to translate in french/english or in german
 void MainWindow::on_radioButton_clicked()
 {
@@ -290,7 +269,7 @@ void MainWindow::on_btnGenerateTranslate_clicked()
 
 void MainWindow::on_btnCheckTranslate_clicked()
 {
-    //Allow to save what the user has written    
+    //Allow to save what the user has written
     wordList[wordIdList::frenchUSER] = ui->checkFrenchTranslate->text();
     wordList[wordIdList::englishUSER] = ui->checkEnglishTranslate->text();
     wordList[wordIdList::germanUSER] = ui->checkGermanTranslate->text();
@@ -331,6 +310,41 @@ void MainWindow::on_btnCheckTranslate_clicked()
 
 }
 
+void MainWindow::on_btnMenuTranslate_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->labelStatusBar->setText("");
+}
+
+
+//**************GUESS ARTICLE PAGE**************//
+void MainWindow::on_btnCheckArticle_clicked()
+{
+    std::cout << "INSIDE" << std::endl;
+    //Allow to save what the user has written
+    wordList[wordIdList::articleUSER] = ui->articleTranslation->text();
+    wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text();
+
+    if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
+    {
+        QMessageBox::information(this, "Result", "Correct translation");
+        ui->articleTranslation->clear();
+        ui->frenchArticleTranslation->clear();
+        fichier(wordList[wordIdList::germanBDD]);
+        clearList();
+    }
+    else
+    {
+        QMessageBox::information(this, "Result", "Fail");
+    }
+}
+
+void MainWindow::on_btnMenuArticle_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->labelStatusBar->setText("");
+}
+
 void MainWindow::on_btnGenerateNounArticle_clicked()
 {
     if(database.open())
@@ -363,25 +377,12 @@ void MainWindow::on_btnGenerateNounArticle_clicked()
      }
 }
 
-void MainWindow::on_btnCheckArticle_clicked()
-{
-    std::cout << "INSIDE" << std::endl;
-    //Allow to save what the user has written
-    wordList[wordIdList::articleUSER] = ui->articleTranslation->text();
-    wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text();
 
-    if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
-    {
-        QMessageBox::information(this, "Result", "Correct translation");
-        ui->articleTranslation->clear();
-        ui->frenchArticleTranslation->clear();
-        fichier(wordList[wordIdList::germanBDD]);
-        clearList();
-    }
-    else
-    {
-        QMessageBox::information(this, "Result", "Fail");
-    }
+//**************GUESS PLURAL PAGE**************//
+void MainWindow::on_btnMenuPlural_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->labelStatusBar->setText("");
 }
 
 void MainWindow::on_btnGenerateNounPlural_clicked()
@@ -434,6 +435,16 @@ void MainWindow::on_btnCheckPlural_clicked()
     else
     {
         QMessageBox::information(this, "Result", "Fail");
+    }
+}
+
+
+
+void MainWindow::clearList()
+{
+    for (int i (0); i < 6; i++)
+    {
+        wordList[i] = "";
     }
 }
 
