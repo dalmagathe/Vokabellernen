@@ -274,9 +274,12 @@ void MainWindow::on_btnGenerateTranslate_clicked()
 void MainWindow::on_btnCheckTranslate_clicked()
 {
     //Allow to save what the user has written
-    wordList[wordIdList::frenchUSER] = ui->checkFrenchTranslate->text();
-    wordList[wordIdList::englishUSER] = ui->checkEnglishTranslate->text();
-    wordList[wordIdList::germanUSER] = ui->checkGermanTranslate->text();
+    wordList[wordIdList::frenchUSER] = ui->checkFrenchTranslate->text().toLower();
+    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
+    wordList[wordIdList::englishUSER] = ui->checkEnglishTranslate->text().toLower();
+    wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
+    wordList[wordIdList::germanUSER] = ui->checkGermanTranslate->text().toLower();
+    wordList[wordIdList::germanUSER][0] = wordList[wordIdList::germanUSER][0].toUpper();
 
     if(german == 1)
     {
@@ -338,8 +341,10 @@ void MainWindow::on_btnMenuTranslate_clicked()
 void MainWindow::on_btnCheckArticle_clicked()
 {
     //Allow to save what the user has written
-    wordList[wordIdList::articleUSER] = ui->articleTranslation->text();
-    wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text();
+    wordList[wordIdList::articleUSER] = ui->articleTranslation->text().toLower();
+    wordList[wordIdList::articleUSER][0] = wordList[wordIdList::articleUSER][0].toUpper();
+    wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text().toLower();
+    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
 
     if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::articleUSER] != "")
     {
@@ -437,8 +442,13 @@ void MainWindow::on_btnGenerateNounPlural_clicked()
 void MainWindow::on_btnCheckPlural_clicked()
 {
     //Allow to save what the user has written
-    wordList[wordIdList::pluralUSER] = ui->pluralForm->text();
-    wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text();
+    //wordList[wordIdList::pluralUSER] = ui->pluralForm->text();
+    //wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text();
+
+    wordList[wordIdList::pluralUSER] = ui->pluralForm->text().toLower();
+    wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
+    wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text().toLower();
+    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
 
     if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::pluralUSER] != "")
     {
