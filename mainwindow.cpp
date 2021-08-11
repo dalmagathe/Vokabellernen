@@ -94,14 +94,7 @@ void MainWindow::on_btnAdd_clicked()
     wordList[wordIdList::frenchUSER] = ui->addFrenchWord->text();
     wordList[wordIdList::pluralUSER] = ui->addPluralForm->text();
 
-    wordList[wordIdList::englishUSER] = wordList[wordIdList::englishUSER].toLower();
-    wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
-    wordList[wordIdList::germanUSER] = wordList[wordIdList::germanUSER].toLower();
-    wordList[wordIdList::germanUSER][0] = wordList[wordIdList::germanUSER][0].toUpper();
-    wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
-    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
-    wordList[wordIdList::pluralUSER] = wordList[wordIdList::pluralUSER].toLower();
-    wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
+    inputDataFormatting();
 
     //Allow to manage data from SQL
     QSqlQuery qryWordNounInsert(database);
@@ -292,10 +285,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
     {
         if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::englishUSER] != "")
         {
-            wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
-            wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
-            wordList[wordIdList::englishUSER] = wordList[wordIdList::englishUSER].toLower();
-            wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
+            inputDataFormatting();
 
             if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
             {
@@ -320,10 +310,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
     {
         if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::germanUSER] != "")
         {
-            wordList[wordIdList::englishUSER] = wordList[wordIdList::englishUSER].toLower();
-            wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
-            wordList[wordIdList::germanUSER] = wordList[wordIdList::germanUSER].toLower();
-            wordList[wordIdList::germanUSER][0] = wordList[wordIdList::germanUSER][0].toUpper();
+            inputDataFormatting();
 
             if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
             {
@@ -363,10 +350,7 @@ void MainWindow::on_btnCheckArticle_clicked()
 
     if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::articleUSER] != "")
     {
-        wordList[wordIdList::articleUSER] = wordList[wordIdList::articleUSER].toLower();
-        wordList[wordIdList::articleUSER][0] = wordList[wordIdList::articleUSER][0].toUpper();
-        wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
-        wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
+        inputDataFormatting();
 
         if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
         {
@@ -467,10 +451,7 @@ void MainWindow::on_btnCheckPlural_clicked()
 
     if((wordList[wordIdList::pluralUSER] != "") && (wordList[wordIdList::frenchUSER] != ""))
     {
-        wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
-        wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
-        wordList[wordIdList::pluralUSER] = wordList[wordIdList::pluralUSER].toLower();
-        wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
+        inputDataFormatting();
 
         if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
         {
@@ -491,6 +472,19 @@ void MainWindow::on_btnCheckPlural_clicked()
 }
 
 
+void MainWindow::inputDataFormatting()
+{
+    wordList[wordIdList::englishUSER] = wordList[wordIdList::englishUSER].toLower();
+    wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
+    wordList[wordIdList::germanUSER] = wordList[wordIdList::germanUSER].toLower();
+    wordList[wordIdList::germanUSER][0] = wordList[wordIdList::germanUSER][0].toUpper();
+    wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
+    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
+    wordList[wordIdList::pluralUSER] = wordList[wordIdList::pluralUSER].toLower();
+    wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
+    wordList[wordIdList::articleUSER] = wordList[wordIdList::articleUSER].toLower();
+    wordList[wordIdList::articleUSER][0] = wordList[wordIdList::articleUSER][0].toUpper();
+}
 
 void MainWindow::clearList()
 {
