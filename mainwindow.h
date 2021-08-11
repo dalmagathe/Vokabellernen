@@ -20,6 +20,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     int fichier(QString germanWord);
+    void openBDD();
 
 private slots:
     //Menu page
