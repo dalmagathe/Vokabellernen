@@ -55,6 +55,7 @@ private:
     QSqlDatabase database;
     QString wordList [11];
     void clearList();
+    void inputDataFormatting();
     int french;
     int german;
 

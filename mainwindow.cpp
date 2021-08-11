@@ -89,14 +89,12 @@ void MainWindow::on_btnReturAdd_clicked()
 
 void MainWindow::on_btnAdd_clicked()
 {
-    QMessageBox::information(this, "Data problem", "DAtaBAs ouvert");
-
-    //Convert the text in the lines edit to a string
-
     wordList[wordIdList::germanUSER] = ui->addGermanWord->text();
     wordList[wordIdList::englishUSER] = ui->addEnglishWord->text();
     wordList[wordIdList::frenchUSER] = ui->addFrenchWord->text();
     wordList[wordIdList::pluralUSER] = ui->addPluralForm->text();
+
+    inputDataFormatting();
 
     //Allow to manage data from SQL
     QSqlQuery qryWordNounInsert(database);
@@ -122,6 +120,11 @@ void MainWindow::on_btnAdd_clicked()
     {
         wordList[wordIdList::articleUSER] = ui->addArticle->text();
         wordList[wordIdList::pluralUSER] =  ui->addPluralForm->text();
+
+        wordList[wordIdList::articleUSER] = wordList[wordIdList::articleUSER].toLower();
+        wordList[wordIdList::articleUSER][0] = wordList[wordIdList::articleUSER][0].toUpper();
+        wordList[wordIdList::pluralUSER] = wordList[wordIdList::pluralUSER].toLower();
+        wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
 
         //Check if the user enter all words.
         if (wordList[wordIdList::englishUSER] == "")
@@ -282,6 +285,8 @@ void MainWindow::on_btnCheckTranslate_clicked()
     {
         if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::englishUSER] != "")
         {
+            inputDataFormatting();
+
             if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
@@ -305,6 +310,8 @@ void MainWindow::on_btnCheckTranslate_clicked()
     {
         if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::germanUSER] != "")
         {
+            inputDataFormatting();
+
             if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
@@ -343,6 +350,8 @@ void MainWindow::on_btnCheckArticle_clicked()
 
     if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::articleUSER] != "")
     {
+        inputDataFormatting();
+
         if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
         {
             QMessageBox::information(this, "Result", "Correct translation");
@@ -440,8 +449,10 @@ void MainWindow::on_btnCheckPlural_clicked()
     wordList[wordIdList::pluralUSER] = ui->pluralForm->text();
     wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text();
 
-    if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::pluralUSER] != "")
+    if((wordList[wordIdList::pluralUSER] != "") && (wordList[wordIdList::frenchUSER] != ""))
     {
+        inputDataFormatting();
+
         if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
         {
             QMessageBox::information(this, "Result", "Correct translation");
@@ -461,6 +472,19 @@ void MainWindow::on_btnCheckPlural_clicked()
 }
 
 
+void MainWindow::inputDataFormatting()
+{
+    wordList[wordIdList::englishUSER] = wordList[wordIdList::englishUSER].toLower();
+    wordList[wordIdList::englishUSER][0] = wordList[wordIdList::englishUSER][0].toUpper();
+    wordList[wordIdList::germanUSER] = wordList[wordIdList::germanUSER].toLower();
+    wordList[wordIdList::germanUSER][0] = wordList[wordIdList::germanUSER][0].toUpper();
+    wordList[wordIdList::frenchUSER] = wordList[wordIdList::frenchUSER].toLower();
+    wordList[wordIdList::frenchUSER][0] = wordList[wordIdList::frenchUSER][0].toUpper();
+    wordList[wordIdList::pluralUSER] = wordList[wordIdList::pluralUSER].toLower();
+    wordList[wordIdList::pluralUSER][0] = wordList[wordIdList::pluralUSER][0].toUpper();
+    wordList[wordIdList::articleUSER] = wordList[wordIdList::articleUSER].toLower();
+    wordList[wordIdList::articleUSER][0] = wordList[wordIdList::articleUSER][0].toUpper();
+}
 
 void MainWindow::clearList()
 {
