@@ -53,6 +53,7 @@ void MainWindow::openBDD()
         QMessageBox::information(this, "Status of the BDD", "BDD close");
     }
 }
+
 //**************MENU PAGE**************//
 void MainWindow::on_btnAddWord_clicked()
 {
@@ -277,37 +278,50 @@ void MainWindow::on_btnCheckTranslate_clicked()
     wordList[wordIdList::englishUSER] = ui->checkEnglishTranslate->text();
     wordList[wordIdList::germanUSER] = ui->checkGermanTranslate->text();
 
-
     if(german == 1)
     {
-        if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
+        if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::englishUSER] != "")
         {
-            QMessageBox::information(this, "Result", "Good job ! ");
-            ui->checkFrenchTranslate->clear();
-            ui->checkEnglishTranslate->clear();
-            ui->checkGermanTranslate->clear();
-            fichier(wordList[wordIdList::germanBDD]);
-            clearList();
+            if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
+            {
+                QMessageBox::information(this, "Result", "Good job ! ");
+                ui->checkFrenchTranslate->clear();
+                ui->checkEnglishTranslate->clear();
+                ui->checkGermanTranslate->clear();
+                fichier(wordList[wordIdList::germanBDD]);
+                clearList();
+            }
+            else
+            {
+                QMessageBox::information(this, "Result", "Try again ! ");
+            }
         }
         else
         {
-            QMessageBox::information(this, "Result", "Try again ! ");
+            QMessageBox::information(this, "Problem", "You need to enter an english and french translation.");
         }
     }
     else if(french == 1)
     {
-        if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
+        if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::germanUSER] != "")
         {
-            QMessageBox::information(this, "Result", "Good job ! ");
-            ui->checkFrenchTranslate->clear();
-            ui->checkEnglishTranslate->clear();
-            ui->checkGermanTranslate->clear();
-            fichier(wordList[wordIdList::germanBDD]);
-            clearList();
+            if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
+            {
+                QMessageBox::information(this, "Result", "Good job ! ");
+                ui->checkFrenchTranslate->clear();
+                ui->checkEnglishTranslate->clear();
+                ui->checkGermanTranslate->clear();
+                fichier(wordList[wordIdList::germanBDD]);
+                clearList();
+            }
+            else
+            {
+                QMessageBox::information(this, "Result", "Try again ! ");
+            }
         }
         else
         {
-            QMessageBox::information(this, "Result", "Try again ! ");
+            QMessageBox::information(this, "Problem", "You need to enter an english and german translation.");
         }
     }
 
@@ -327,17 +341,24 @@ void MainWindow::on_btnCheckArticle_clicked()
     wordList[wordIdList::articleUSER] = ui->articleTranslation->text();
     wordList[wordIdList::frenchUSER] = ui->frenchArticleTranslation->text();
 
-    if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
+    if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::articleUSER] != "")
     {
-        QMessageBox::information(this, "Result", "Correct translation");
-        ui->articleTranslation->clear();
-        ui->frenchArticleTranslation->clear();
-        fichier(wordList[wordIdList::germanBDD]);
-        clearList();
+        if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
+        {
+            QMessageBox::information(this, "Result", "Correct translation");
+            ui->articleTranslation->clear();
+            ui->frenchArticleTranslation->clear();
+            fichier(wordList[wordIdList::germanBDD]);
+            clearList();
+        }
+        else
+        {
+            QMessageBox::information(this, "Result", "Fail");
+        }
     }
     else
     {
-        QMessageBox::information(this, "Result", "Fail");
+        QMessageBox::information(this, "Problem", "You need to enter an english translation and an article (das/der/die).");
     }
 }
 
@@ -419,16 +440,23 @@ void MainWindow::on_btnCheckPlural_clicked()
     wordList[wordIdList::pluralUSER] = ui->pluralForm->text();
     wordList[wordIdList::frenchUSER] = ui->frenchPluralForm->text();
 
-    if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
+    if(wordList[wordIdList::frenchUSER] != "" && wordList[wordIdList::pluralUSER] != "")
     {
-        QMessageBox::information(this, "Result", "Correct translation");
-        ui->pluralForm->clear();
-        ui->frenchPluralForm->clear();
-        clearList();
+        if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
+        {
+            QMessageBox::information(this, "Result", "Correct translation");
+            ui->pluralForm->clear();
+            ui->frenchPluralForm->clear();
+            clearList();
+        }
+        else
+        {
+            QMessageBox::information(this, "Result", "Fail");
+        }
     }
     else
     {
-        QMessageBox::information(this, "Result", "Fail");
+        QMessageBox::information(this, "Problem", "You need to enter an english translation and a plural form.");
     }
 }
 
