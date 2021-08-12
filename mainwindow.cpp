@@ -206,6 +206,14 @@ void MainWindow::on_btnAdd_clicked()
     }
 }
 
+void MainWindow::on_btnClearAdd_clicked()
+{
+    ui->addEnglishWord->clear();
+    ui->addFrenchWord->clear();
+    ui->addGermanWord->clear();
+    ui->addArticle->clear();
+    ui->addPluralForm->clear();
+}
 
 //**************GUESS TRANSLATION PAGE**************//
 //Allow to indicate if the user want to translate in french/english or in german
@@ -290,9 +298,6 @@ void MainWindow::on_btnCheckTranslate_clicked()
             if(wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD] && wordList[wordIdList::englishUSER] == wordList[wordIdList::englishBDD])
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
-                ui->checkFrenchTranslate->clear();
-                ui->checkEnglishTranslate->clear();
-                ui->checkGermanTranslate->clear();
                 fichier(wordList[wordIdList::germanBDD]);
                 clearList();
             }
@@ -315,9 +320,6 @@ void MainWindow::on_btnCheckTranslate_clicked()
             if(wordList[wordIdList::germanBDD] == wordList[wordIdList::germanUSER] && wordList[wordIdList::englishBDD] == wordList[wordIdList::englishUSER])
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
-                ui->checkFrenchTranslate->clear();
-                ui->checkEnglishTranslate->clear();
-                ui->checkGermanTranslate->clear();
                 fichier(wordList[wordIdList::germanBDD]);
                 clearList();
             }
@@ -340,6 +342,12 @@ void MainWindow::on_btnMenuTranslate_clicked()
     ui->labelStatusBar->setText("");
 }
 
+void MainWindow::on_btnClearTranslate_clicked()
+{
+    ui->checkEnglishTranslate->clear();
+    ui->checkFrenchTranslate->clear();
+    ui->checkGermanTranslate->clear();
+}
 
 //**************GUESS ARTICLE PAGE**************//
 void MainWindow::on_btnCheckArticle_clicked()
@@ -406,6 +414,12 @@ void MainWindow::on_btnGenerateNounArticle_clicked()
     ui->nounTranslation->setText(wordList[wordIdList::germanBDD]);
 }
 
+void MainWindow::on_btnClearArticle_clicked()
+{
+    ui->articleTranslation->clear();
+    ui->frenchArticleTranslation->clear();
+    ui->nounTranslation->clear();
+}
 
 //**************GUESS PLURAL PAGE**************//
 void MainWindow::on_btnMenuPlural_clicked()
@@ -471,6 +485,12 @@ void MainWindow::on_btnCheckPlural_clicked()
     }
 }
 
+void MainWindow::on_btnClearPlural_clicked()
+{
+    ui->frenchPluralForm->clear();
+    ui->germanPluralForm->clear();
+    ui->pluralForm->clear();
+}
 
 void MainWindow::inputDataFormatting()
 {
