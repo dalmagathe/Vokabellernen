@@ -168,7 +168,7 @@ background: white;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="mainPage">
        <property name="styleSheet">
@@ -712,6 +712,37 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="btnClearAdd">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>964</width>
+            <height>23</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(208, 208, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(156, 156, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(156, 156, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnReturAdd">
           <property name="styleSheet">
            <string notr="true">QPushButton {
@@ -900,6 +931,28 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="btnClearTranslate">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(200, 67, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(200, 67, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnMenuTranslate">
           <property name="styleSheet">
            <string notr="true">QPushButton {
@@ -1069,6 +1122,28 @@ QPushButton:pressed {
           </property>
           <property name="text">
            <string>Check</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnClearArticle">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(255, 85, 127);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(186, 62, 93);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color: rgb(186, 62, 93);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Clear</string>
           </property>
          </widget>
         </item>
@@ -1246,6 +1321,28 @@ QPushButton:pressed {
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="btnClearPlural">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: rgb(99, 198, 0);
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: rgb(76, 152, 0);
+    padding: 4px;
+	font: 75 10pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(76, 152, 0);
+    border-style: inset;
+}</string>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnMenuPlural">
           <property name="styleSheet">
            <string notr="true">QPushButton {
@@ -1270,19 +1367,6 @@ QPushButton:pressed {
        </layout>
       </widget>
      </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>160</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QLabel" name="labelStatusBar">

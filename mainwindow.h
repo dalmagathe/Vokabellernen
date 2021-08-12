@@ -32,6 +32,7 @@ private slots:
     //Add word page
     void on_btnReturAdd_clicked();
     void on_btnAdd_clicked();
+    void on_btnClearAdd_clicked();
 
     //Guess translation page
     void on_radioButton_clicked();
@@ -39,16 +40,19 @@ private slots:
     void on_btnMenuTranslate_clicked();
     void on_btnCheckTranslate_clicked();
     void on_btnGenerateTranslate_clicked();
+    void on_btnClearTranslate_clicked();
 
     //Guess article page
     void on_btnCheckArticle_clicked();
     void on_btnMenuArticle_clicked();
     void on_btnGenerateNounArticle_clicked();
+    void on_btnClearArticle_clicked();
 
     //Guess plural page
     void on_btnMenuPlural_clicked();
     void on_btnGenerateNounPlural_clicked();
     void on_btnCheckPlural_clicked();
+    void on_btnClearPlural_clicked();
 
 private:
     Ui::MainWindow *ui;
