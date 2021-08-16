@@ -6,7 +6,7 @@
 #include <QSqlDatabase>
 #include <QMessageBox>
 #include <string>
-
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -54,6 +54,8 @@ private slots:
     void on_btnCheckPlural_clicked();
     void on_btnClearPlural_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;
@@ -62,6 +64,10 @@ private:
     void inputDataFormatting();
     int french;
     int german;
+    int rows;
+    std::vector<int> translationVector;
+    std::vector<int> articleVector;
+    std::vector<int> pluralVector;
 
 };
 

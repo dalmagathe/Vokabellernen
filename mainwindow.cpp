@@ -6,8 +6,9 @@
 #include <cstdlib>
 #include <string>
 #include <fstream>
+#include <guessedword.h>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", "", "", "", "", "", ""}
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), rows(0), wordList{"", "", "", "", "", "", "", "", "", "", ""}
 {
     ui->setupUi(this);
 
@@ -235,7 +236,6 @@ void MainWindow::on_btnGenerateTranslate_clicked()
     q.prepare("SELECT COUNT(*) FROM words");
     q.exec();
 
-    int rows= 0;
     while (q.next())
     {
         rows = q.value(0).toInt();
@@ -299,6 +299,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
+                translationVector.push_back(rows);
                 clearList();
             }
             else
@@ -321,6 +322,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
+                translationVector.push_back(rows);
                 clearList();
             }
             else
@@ -366,6 +368,7 @@ void MainWindow::on_btnCheckArticle_clicked()
             ui->articleTranslation->clear();
             ui->frenchArticleTranslation->clear();
             fichier(wordList[wordIdList::germanBDD]);
+            articleVector.push_back(rows);
             clearList();
         }
         else
@@ -391,7 +394,6 @@ void MainWindow::on_btnGenerateNounArticle_clicked()
     qNoun.prepare("SELECT COUNT(*) FROM noun");
     qNoun.exec();
 
-    int rows= 0;
     while (qNoun.next())
     {
         rows = qNoun.value(0).toInt();
@@ -434,7 +436,6 @@ void MainWindow::on_btnGenerateNounPlural_clicked()
     qPlural.prepare("SELECT COUNT(*) FROM noun");
     qPlural.exec();
 
-    int rows= 0;
     while (qPlural.next())
     {
         rows = qPlural.value(0).toInt();
@@ -472,6 +473,7 @@ void MainWindow::on_btnCheckPlural_clicked()
             QMessageBox::information(this, "Result", "Correct translation");
             ui->pluralForm->clear();
             ui->frenchPluralForm->clear();
+            pluralVector.push_back(rows);
             clearList();
         }
         else
@@ -530,4 +532,10 @@ int MainWindow::fichier(QString germanWord)
     }
 
     return 0;
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    guessedWord *guessedWordWindow = new guessedWord(this);
+    guessedWordWindow->exec();
 }
