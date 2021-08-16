@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 
     if (w.isActiveWindow())
     {
-        std::cout<<"OPEN"<<std::endl;
         w.openBDD();
     }
     return a.exec();

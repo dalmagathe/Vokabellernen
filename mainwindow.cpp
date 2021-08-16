@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "answer.h"
 #include "ui_mainwindow.h"
 #include "QSqlQuery"
 #include "iostream"
@@ -303,7 +304,14 @@ void MainWindow::on_btnCheckTranslate_clicked()
             }
             else
             {
-                QMessageBox::information(this, "Result", "Try again ! ");
+                std::cout << "Avant" << wordList[1].toStdString() << std::endl;
+                //Answer *answerWindow = new Answer(wordList, this);
+                Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], this);
+                answerWindow->exec();
+                //Answer answerWindow;
+                //answerWindow.setModal(true);
+                //answerWindow.exec();
+                //QMessageBox::information(this, "Result", "Try again ! ");
             }
         }
         else
@@ -325,7 +333,8 @@ void MainWindow::on_btnCheckTranslate_clicked()
             }
             else
             {
-                QMessageBox::information(this, "Result", "Try again ! ");
+                Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], this);
+                answerWindow->exec();
             }
         }
         else
@@ -370,7 +379,9 @@ void MainWindow::on_btnCheckArticle_clicked()
         }
         else
         {
-            QMessageBox::information(this, "Result", "Fail");
+            Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], wordList[wordIdList::articleBDD], wordList[wordIdList::pluralBDD], this);
+            answerWindow->exec();
+            //QMessageBox::information(this, "Result", "Fail");
         }
     }
     else
@@ -476,7 +487,8 @@ void MainWindow::on_btnCheckPlural_clicked()
         }
         else
         {
-            QMessageBox::information(this, "Result", "Fail");
+            Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], wordList[wordIdList::articleBDD], wordList[wordIdList::pluralBDD], this);
+            answerWindow->exec();
         }
     }
     else
