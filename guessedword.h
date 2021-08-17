@@ -14,15 +14,19 @@ class guessedWord : public QDialog
     Q_OBJECT
 
 public:
-    explicit guessedWord(std::vector<int> idGuessedWordsEntry, QWidget *parent);
+    explicit guessedWord(std::vector<int> idTranslationEntry, std::vector<int> idArticleEntry, std::vector<int> idPluralEntry, QWidget *parent);
     ~guessedWord();
-    void findBDD();
+    void findBDDTranslationMode();
+    void findBDDArticleMode();
+    void findBDDPluralMode();
 
 private:
     Ui::guessedWord *ui;
     int rows;
     int columns;
-    std::vector<int> idGuessedWords;
+    std::vector<int> idTranslation;
+    std::vector<int> idArticle;
+    std::vector<int> idPlural;
     //firstColumn = german, article, germanPluralForm
     //QString firstColumn;
     //secondColumn = french, german, germanSingularForm

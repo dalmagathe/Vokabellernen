@@ -65,9 +65,11 @@ private:
     int french;
     int german;
     int position;
+    int positionNoun;
+    int positionPlural;
     std::vector<int> translationVector;
-    //std::vector<int> articleVector;
-    //std::vector<int> pluralVector;
+    std::vector<int> articleVector;
+    std::vector<int> pluralVector;
 
 };
 

@@ -8,7 +8,7 @@
 #include <fstream>
 #include <guessedword.h>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), position(0), wordList{"", "", "", "", "", "", "", "", "", "", ""}
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), position(0), positionNoun(0), positionPlural(0), wordList{"", "", "", "", "", "", "", "", "", "", ""}, translationVector(NULL), articleVector(NULL), pluralVector(NULL)
 {
     ui->setupUi(this);
 
@@ -328,7 +328,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
-                //translationVector.push_back(rows);
+                translationVector.push_back(position);
                 clearList();
             }
             else
@@ -374,7 +374,7 @@ void MainWindow::on_btnCheckArticle_clicked()
             ui->articleTranslation->clear();
             ui->frenchArticleTranslation->clear();
             fichier(wordList[wordIdList::germanBDD]);
-            //articleVector.push_back(rows);
+            articleVector.push_back(positionNoun);
             clearList();
         }
         else
@@ -407,7 +407,7 @@ void MainWindow::on_btnGenerateNounArticle_clicked()
     }
 
     srand(time(0));
-    int positionNoun = rand() % rows;
+    positionNoun = rand() % rows;
 
     QSqlQuery queryNoun;
 
@@ -450,7 +450,7 @@ void MainWindow::on_btnGenerateNounPlural_clicked()
     }
 
     srand(time(0));
-    int positionPlural = rand() % rows;
+    positionPlural = rand() % rows;
 
     QSqlQuery queryNoun;
 
@@ -481,7 +481,7 @@ void MainWindow::on_btnCheckPlural_clicked()
             QMessageBox::information(this, "Result", "Correct translation");
             ui->pluralForm->clear();
             ui->frenchPluralForm->clear();
-            //pluralVector.push_back(rows);
+            pluralVector.push_back(positionPlural);
             clearList();
         }
         else
@@ -544,6 +544,6 @@ int MainWindow::fichier(QString germanWord)
 
 void MainWindow::on_pushButton_clicked()
 {
-    guessedWord *guessedWordWindow = new guessedWord(translationVector, this);
+    guessedWord *guessedWordWindow = new guessedWord(translationVector, articleVector, pluralVector, this);
     guessedWordWindow->exec();
 }
