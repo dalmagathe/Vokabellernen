@@ -25,7 +25,7 @@
     <widget class="QTableWidget" name="tableWidget">
      <column>
       <property name="text">
-       <string>English</string>
+       <string>German</string>
       </property>
      </column>
      <column>
@@ -35,7 +35,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Nouvelle colonne</string>
+       <string>English</string>
       </property>
      </column>
     </widget>
@@ -87,7 +87,7 @@
      </column>
      <column>
       <property name="text">
-       <string>English singular form</string>
+       <string>French singular form</string>
       </property>
      </column>
     </widget>

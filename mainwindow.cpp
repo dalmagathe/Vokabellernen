@@ -8,7 +8,7 @@
 #include <fstream>
 #include <guessedword.h>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), rows(0), wordList{"", "", "", "", "", "", "", "", "", "", ""}
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), position(0), wordList{"", "", "", "", "", "", "", "", "", "", ""}
 {
     ui->setupUi(this);
 
@@ -235,6 +235,7 @@ void MainWindow::on_btnGenerateTranslate_clicked()
     QSqlQuery q;
     q.prepare("SELECT COUNT(*) FROM words");
     q.exec();
+    int rows = 0;
 
     while (q.next())
     {
@@ -245,7 +246,7 @@ void MainWindow::on_btnGenerateTranslate_clicked()
     {
         srand(time(0));
 
-        int position = rand() % rows;
+        position = rand() % rows;
 
         QSqlQuery query;
 
@@ -265,7 +266,7 @@ void MainWindow::on_btnGenerateTranslate_clicked()
     {
         srand(time(0));
 
-        int position = rand() % rows;
+        position = rand() % rows;
 
         QSqlQuery query;
 
@@ -299,7 +300,12 @@ void MainWindow::on_btnCheckTranslate_clicked()
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
-                translationVector.push_back(rows);
+                translationVector.push_back(position);
+                std::cout << " before position" << position << std::endl;
+                for (int i = 0; i < translationVector.size(); i++)
+                {
+                    std::cout << " before " << translationVector[i] << std::endl;
+                }
                 clearList();
             }
             else
@@ -322,7 +328,7 @@ void MainWindow::on_btnCheckTranslate_clicked()
             {
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
-                translationVector.push_back(rows);
+                //translationVector.push_back(rows);
                 clearList();
             }
             else
@@ -368,7 +374,7 @@ void MainWindow::on_btnCheckArticle_clicked()
             ui->articleTranslation->clear();
             ui->frenchArticleTranslation->clear();
             fichier(wordList[wordIdList::germanBDD]);
-            articleVector.push_back(rows);
+            //articleVector.push_back(rows);
             clearList();
         }
         else
@@ -393,6 +399,7 @@ void MainWindow::on_btnGenerateNounArticle_clicked()
     QSqlQuery qNoun;
     qNoun.prepare("SELECT COUNT(*) FROM noun");
     qNoun.exec();
+    int rows = 0;
 
     while (qNoun.next())
     {
@@ -435,6 +442,7 @@ void MainWindow::on_btnGenerateNounPlural_clicked()
     QSqlQuery qPlural;
     qPlural.prepare("SELECT COUNT(*) FROM noun");
     qPlural.exec();
+    int rows = 0;
 
     while (qPlural.next())
     {
@@ -473,7 +481,7 @@ void MainWindow::on_btnCheckPlural_clicked()
             QMessageBox::information(this, "Result", "Correct translation");
             ui->pluralForm->clear();
             ui->frenchPluralForm->clear();
-            pluralVector.push_back(rows);
+            //pluralVector.push_back(rows);
             clearList();
         }
         else
@@ -536,6 +544,6 @@ int MainWindow::fichier(QString germanWord)
 
 void MainWindow::on_pushButton_clicked()
 {
-    guessedWord *guessedWordWindow = new guessedWord(this);
+    guessedWord *guessedWordWindow = new guessedWord(translationVector, this);
     guessedWordWindow->exec();
 }

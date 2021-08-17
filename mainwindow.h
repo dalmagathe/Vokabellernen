@@ -64,10 +64,10 @@ private:
     void inputDataFormatting();
     int french;
     int german;
-    int rows;
+    int position;
     std::vector<int> translationVector;
-    std::vector<int> articleVector;
-    std::vector<int> pluralVector;
+    //std::vector<int> articleVector;
+    //std::vector<int> pluralVector;
 
 };
 
