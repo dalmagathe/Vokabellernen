@@ -83,6 +83,10 @@ void guessedWord::findBDDPluralMode()
     std::cout << "In findBDDPluralMode" << std::endl;
     QSqlQuery quer;
 
+    ui->tableWidget->setColumnWidth(0, this->width()/3);
+    ui->tableWidget->setColumnWidth(1, this->width()/3);
+    ui->tableWidget->setColumnWidth(2, this->width()/3);
+
     for (int i(0); i < idPlural.size(); i++)
     {
         std::cout << idPlural[i] << std::endl;
@@ -99,8 +103,25 @@ void guessedWord::findBDDPluralMode()
         ui->tableWidget_3->setItem(i, 1, new QTableWidgetItem(quer.value(1).toString()));
         ui->tableWidget_3->setItem(i, 2, new QTableWidgetItem(quer.value(2).toString()));
 
-        ui->tableWidget_3->resizeColumnsToContents();
+        //ui->tableWidget_3->resizeColumnsToContents();
 
     }
 }
 
+void guessedWord::resizeEvent(QResizeEvent *)
+{
+    ui->tableWidget->verticalHeader()->setVisible(false);
+    ui->tableWidget->setColumnWidth(0, ui->tableWidget->width()/3);
+    ui->tableWidget->setColumnWidth(1, ui->tableWidget->width()/3);
+    ui->tableWidget->setColumnWidth(2, ui->tableWidget->width()/3);
+
+    ui->tableWidget_2->verticalHeader()->setVisible(false);
+    ui->tableWidget_2->setColumnWidth(0, ui->tableWidget_2->width()/3);
+    ui->tableWidget_2->setColumnWidth(1, ui->tableWidget_2->width()/3);
+    ui->tableWidget_2->setColumnWidth(2, ui->tableWidget_2->width()/3);
+
+    ui->tableWidget_3->verticalHeader()->setVisible(false);
+    ui->tableWidget_3->setColumnWidth(0, ui->tableWidget_3->width()/3);
+    ui->tableWidget_3->setColumnWidth(1, ui->tableWidget_3->width()/3);
+    ui->tableWidget_3->setColumnWidth(2, ui->tableWidget_3->width()/3);
+}

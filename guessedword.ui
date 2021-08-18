@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>549</width>
-    <height>357</height>
+    <width>505</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+     </property>
      <property name="text">
       <string>Translation mode</string>
      </property>
@@ -23,6 +26,15 @@
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget">
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
      <column>
       <property name="text">
        <string>German</string>
@@ -42,6 +54,9 @@
    </item>
    <item>
     <widget class="QLabel" name="label_2">
+     <property name="styleSheet">
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+     </property>
      <property name="text">
       <string>Article mode</string>
      </property>
@@ -49,6 +64,15 @@
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget_2">
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
      <column>
       <property name="text">
        <string>Article</string>
@@ -68,6 +92,9 @@
    </item>
    <item>
     <widget class="QLabel" name="label_3">
+     <property name="styleSheet">
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+     </property>
      <property name="text">
       <string>Plural mode</string>
      </property>
@@ -75,6 +102,15 @@
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget_3">
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
      <column>
       <property name="text">
        <string>German Plural form</string>
@@ -92,51 +128,8 @@
      </column>
     </widget>
    </item>
-   <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>accepted()</signal>
-   <receiver>guessedWord</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>rejected()</signal>
-   <receiver>guessedWord</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>286</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

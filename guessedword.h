@@ -16,12 +16,13 @@ class guessedWord : public QDialog
 public:
     explicit guessedWord(std::vector<int> idTranslationEntry, std::vector<int> idArticleEntry, std::vector<int> idPluralEntry, QWidget *parent);
     ~guessedWord();
-    void findBDDTranslationMode();
-    void findBDDArticleMode();
-    void findBDDPluralMode();
 
 private:
     Ui::guessedWord *ui;
+    void findBDDTranslationMode();
+    void findBDDArticleMode();
+    void findBDDPluralMode();
+    void resizeEvent(QResizeEvent *);
     int rows;
     int columns;
     std::vector<int> idTranslation;
