@@ -17,6 +17,9 @@ public:
     explicit guessedWord(std::vector<int> idTranslationEntry, std::vector<int> idArticleEntry, std::vector<int> idPluralEntry, QWidget *parent);
     ~guessedWord();
 
+private slots:
+    void on_textEditorBtn_clicked();
+
 private:
     Ui::guessedWord *ui;
     void findBDDTranslationMode();

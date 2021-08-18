@@ -1,6 +1,10 @@
 #include "guessedword.h"
+#include "namebackupfile.h"
 #include "ui_guessedword.h"
 #include "QSqlQuery"
+#include <fstream>
+#include <QFileDialog>
+#include <QMessageBox>
 
 guessedWord::guessedWord(std::vector<int> idTranslationEntry, std::vector<int> idArticleEntry, std::vector<int> idPluralEntry, QWidget *parent) : QDialog(parent), ui(new Ui::guessedWord)
 {
@@ -124,4 +128,46 @@ void guessedWord::resizeEvent(QResizeEvent *)
     ui->tableWidget_3->setColumnWidth(0, ui->tableWidget_3->width()/3);
     ui->tableWidget_3->setColumnWidth(1, ui->tableWidget_3->width()/3);
     ui->tableWidget_3->setColumnWidth(2, ui->tableWidget_3->width()/3);
+}
+
+
+void guessedWord::on_textEditorBtn_clicked()
+{
+    QString directory_Name = QFileDialog::getExistingDirectory(this, "Open a directory", "C://");
+    //std::string const words("D:/words.txt");
+    //std::ofstream wordsFlux(words.c_str(), std::ios::app);
+    std::ofstream wordsFlux(directory_Name.toStdString() + "/words.txt", std::ios::app);
+
+    if(wordsFlux)
+    {
+        nameBackupFile *nameBackupFileWindow = new nameBackupFile(this);
+        nameBackupFileWindow->show();
+        std::cout << "apres" << nameBackupFileWindow->get_nameFile().toStdString() << std::endl;
+
+        if (nameBackupFileWindow->)
+        {
+            std::cout << "apres" << nameBackupFileWindow->get_nameFile().toStdString() << std::endl;
+        }
+
+        for(int i = 0; i < ui->tableWidget->rowCount(); i++)
+        {
+            wordsFlux << ui->tableWidget->item(i,0)->text().toStdString() << ";" << ui->tableWidget->item(i,1)->text().toStdString() << ";" << ui->tableWidget->item(i,2)->text().toStdString() <<std::endl;
+        }
+
+        for(int i = 0; i < ui->tableWidget_2->rowCount(); i++)
+        {
+            wordsFlux << ui->tableWidget_2->item(i,0)->text().toStdString() << ";" << ui->tableWidget_2->item(i,1)->text().toStdString() << ";" << ui->tableWidget_2->item(i,2)->text().toStdString() <<std::endl;
+        }
+
+        for(int i = 0; i < ui->tableWidget_3->rowCount(); i++)
+        {
+            wordsFlux << ui->tableWidget_3->item(i,0)->text().toStdString() << ";" << ui->tableWidget_3->item(i,1)->text().toStdString() << ";" << ui->tableWidget_3->item(i,2)->text().toStdString() <<std::endl;
+        }
+    }
+
+    else
+    {
+        std::cout << "ERREUR: Impossible d'ouvrir le fichier." << std::endl;
+    }
+
 }

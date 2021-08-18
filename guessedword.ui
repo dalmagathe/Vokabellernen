@@ -128,6 +128,13 @@
      </column>
     </widget>
    </item>
+   <item>
+    <widget class="QPushButton" name="textEditorBtn">
+     <property name="text">
+      <string>Text Editor</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

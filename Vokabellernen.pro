@@ -11,15 +11,18 @@ CONFIG += c++11
 SOURCES += \
     guessedword.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    namebackupfile.cpp
 
 HEADERS += \
     guessedword.h \
-    mainwindow.h
+    mainwindow.h \
+    namebackupfile.h
 
 FORMS += \
     guessedword.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    namebackupfile.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
