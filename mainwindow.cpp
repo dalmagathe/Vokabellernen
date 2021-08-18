@@ -301,11 +301,6 @@ void MainWindow::on_btnCheckTranslate_clicked()
                 QMessageBox::information(this, "Result", "Good job ! ");
                 fichier(wordList[wordIdList::germanBDD]);
                 translationVector.push_back(position);
-                std::cout << " before position" << position << std::endl;
-                for (int i = 0; i < translationVector.size(); i++)
-                {
-                    std::cout << " before " << translationVector[i] << std::endl;
-                }
                 clearList();
             }
             else
@@ -544,6 +539,16 @@ int MainWindow::fichier(QString germanWord)
 
 void MainWindow::on_pushButton_clicked()
 {
+    for (int i = 0; i < articleVector.size(); i++)
+    {
+        std::cout << "id article" << articleVector[i] << std::endl;
+    }
+
+    for (int i = 0; i < pluralVector.size(); i++)
+    {
+        std::cout << "id plural" << pluralVector[i] << std::endl;
+    }
+
     guessedWord *guessedWordWindow = new guessedWord(translationVector, articleVector, pluralVector, this);
     guessedWordWindow->exec();
 }
