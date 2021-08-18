@@ -25,6 +25,7 @@ void getNameBackup::on_pushButton_clicked()
     else
     {
         QMessageBox::critical(this, "Error message", "You need to enter a name for the backup file.");
+
     }
 
 }
