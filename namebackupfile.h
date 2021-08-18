@@ -3,12 +3,13 @@
 
 #include <QMainWindow>
 #include <string>
+#include <QDialog>
 
 namespace Ui {
 class nameBackupFile;
 }
 
-class nameBackupFile : public QMainWindow
+class nameBackupFile : public QDialog
 {
     Q_OBJECT
 

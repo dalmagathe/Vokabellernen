@@ -9,20 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    getnamebackup.cpp \
     guessedword.cpp \
     main.cpp \
-    mainwindow.cpp \
-    namebackupfile.cpp
+    mainwindow.cpp
 
 HEADERS += \
+    getnamebackup.h \
     guessedword.h \
-    mainwindow.h \
-    namebackupfile.h
+    mainwindow.h
 
 FORMS += \
+    getnamebackup.ui \
     guessedword.ui \
-    mainwindow.ui \
-    namebackupfile.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

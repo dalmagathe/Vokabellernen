@@ -1,5 +1,5 @@
 #include "guessedword.h"
-#include "namebackupfile.h"
+#include "getnamebackup.h"
 #include "ui_guessedword.h"
 #include "QSqlQuery"
 #include <fstream>
@@ -134,21 +134,13 @@ void guessedWord::resizeEvent(QResizeEvent *)
 void guessedWord::on_textEditorBtn_clicked()
 {
     QString directory_Name = QFileDialog::getExistingDirectory(this, "Open a directory", "C://");
-    //std::string const words("D:/words.txt");
-    //std::ofstream wordsFlux(words.c_str(), std::ios::app);
-    std::ofstream wordsFlux(directory_Name.toStdString() + "/words.txt", std::ios::app);
+    getNameBackup *nameBackupFileWindow = new getNameBackup(this);
+    nameBackupFileWindow->exec();
+
+    std::ofstream wordsFlux(directory_Name.toStdString() +"/"+ nameBackupFileWindow->get_nameFile().toStdString() + ".txt", std::ios::app);
 
     if(wordsFlux)
     {
-        nameBackupFile *nameBackupFileWindow = new nameBackupFile(this);
-        nameBackupFileWindow->show();
-        std::cout << "apres" << nameBackupFileWindow->get_nameFile().toStdString() << std::endl;
-
-        if (nameBackupFileWindow->)
-        {
-            std::cout << "apres" << nameBackupFileWindow->get_nameFile().toStdString() << std::endl;
-        }
-
         for(int i = 0; i < ui->tableWidget->rowCount(); i++)
         {
             wordsFlux << ui->tableWidget->item(i,0)->text().toStdString() << ";" << ui->tableWidget->item(i,1)->text().toStdString() << ";" << ui->tableWidget->item(i,2)->text().toStdString() <<std::endl;

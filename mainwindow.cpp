@@ -539,15 +539,6 @@ int MainWindow::fichier(QString germanWord)
 
 void MainWindow::on_pushButton_clicked()
 {
-    for (int i = 0; i < articleVector.size(); i++)
-    {
-        std::cout << "id article" << articleVector[i] << std::endl;
-    }
-
-    for (int i = 0; i < pluralVector.size(); i++)
-    {
-        std::cout << "id plural" << pluralVector[i] << std::endl;
-    }
 
     guessedWord *guessedWordWindow = new guessedWord(translationVector, articleVector, pluralVector, this);
     guessedWordWindow->exec();

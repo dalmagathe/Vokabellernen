@@ -3,10 +3,10 @@
 #include "iostream"
 
 nameBackupFile::nameBackupFile(QWidget *parent) :
-    QMainWindow(parent),
+    QDialog(parent),
     ui(new Ui::nameBackupFile)
 {
-    ui->setupUi(this);
+    //ui->setupUi(this);
 }
 
 nameBackupFile::~nameBackupFile()
