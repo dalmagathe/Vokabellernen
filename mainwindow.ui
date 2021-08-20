@@ -168,7 +168,7 @@ background: white;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="mainPage">
        <property name="styleSheet">
@@ -492,6 +492,28 @@ QPushButton:pressed {
             </property>
             <property name="text">
              <string>Guessing plural form of a noun</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(255, 170, 0);
+    border-style: outset;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: rgb(231, 154, 0);
+    padding: 6px;
+	font: 75 12pt &quot;Script MT Bold&quot;;
+}
+QPushButton:pressed {
+    background-color:rgb(231, 154, 0);
+    border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>List guessed words</string>
             </property>
            </widget>
           </item>
