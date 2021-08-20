@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <string>
 #include <fstream>
+#include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow), wordList{"", "", "", "", "", "", "", "", "", "", ""}
 {

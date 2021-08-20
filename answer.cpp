@@ -27,13 +27,23 @@ Answer::~Answer()
 
 void Answer::on_pushButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
-    ui->french->setText("French translation : " + frenchBDD);
-    ui->german->setText("German translation : " + germanBDD);
-    ui->english->setText("English translation : " + englishBDD);
-    ui->article->setText("Article : " + articleBDD);
-    ui->plural->setText("Plural form : " + pluralBDD);
+    this->resize(540, 180);
 
-    //ui->article->text(wordList[]);
-    //ui->plural->text(wordList[]);
+    ui->stackedWidget->setCurrentIndex(1);
+    ui->frenchBDD->setText(frenchBDD);
+    ui->germanBDD->setText(germanBDD);
+    ui->englishBDD->setText(englishBDD);
+    ui->articleBDD->setText(articleBDD);
+    ui->pluraBDD->setText(pluralBDD);
+
+    ui->frenchBDD->setReadOnly(1);
+    ui->germanBDD->setReadOnly(1);
+    ui->englishBDD->setReadOnly(1);
+    ui->articleBDD->setReadOnly(1);
+    ui->pluraBDD->setReadOnly(1);
+}
+
+void Answer::on_pushButton_2_clicked()
+{
+    this->close();
 }
