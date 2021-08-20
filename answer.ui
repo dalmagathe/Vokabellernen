@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>499</width>
-    <height>170</height>
+    <width>511</width>
+    <height>210</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -35,9 +35,7 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-image: url(:/emoji/emoji.png);
-background-repeat:no-repeat;
-background-position:left;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Try again !</string>
