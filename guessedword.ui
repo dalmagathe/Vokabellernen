@@ -11,16 +11,42 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>List of guessed words</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Arial Black</family>
+       <pointsize>11</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;
+color: rgb(255, 85, 0);
+border-bottom-color: rgb(0, 0, 0);</string>
      </property>
      <property name="text">
       <string>Translation mode</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line_3">
+     <property name="styleSheet">
+      <string notr="true">border-style: normal;
+border-width: 1px;
+background-color:rgb(191, 191, 191);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -39,15 +65,39 @@
       <property name="text">
        <string>German</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>French</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>English</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
      </column>
     </widget>
@@ -55,10 +105,25 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="styleSheet">
-      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;
+color: rgb(255, 85, 0);</string>
      </property>
      <property name="text">
       <string>Article mode</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="styleSheet">
+      <string notr="true">border-style: normal;
+border-width: 1px;
+background-color:rgb(191, 191, 191);
+
+</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -77,15 +142,39 @@
       <property name="text">
        <string>Article</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>German</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>French</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
      </column>
     </widget>
@@ -93,10 +182,23 @@
    <item>
     <widget class="QLabel" name="label_3">
      <property name="styleSheet">
-      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;</string>
+      <string notr="true">font: 87 11pt &quot;Arial Black&quot;;
+color: rgb(255, 85, 0);</string>
      </property>
      <property name="text">
       <string>Plural mode</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line_2">
+     <property name="styleSheet">
+      <string notr="true">border-style: normal;
+border-width: 1px;
+background-color:rgb(191, 191, 191);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
@@ -115,23 +217,69 @@
       <property name="text">
        <string>German Plural form</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
      <column>
       <property name="text">
        <string>German singular form</string>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
      </column>
      <column>
       <property name="text">
        <string>French singular form</string>
       </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
      </column>
     </widget>
    </item>
    <item>
     <widget class="QPushButton" name="textEditorBtn">
+     <property name="font">
+      <font>
+       <family>Arial Black</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	background-color:rgb(225, 225, 225);
+	border-style: double;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: rgb(167, 167, 167);
+    padding: 3px;
+}
+
+QPushButton:hover
+{
+	border: 2px solid rgb(255, 85, 0);
+	background-color:rgb(255, 85, 0);
+}</string>
+     </property>
      <property name="text">
-      <string>Text Editor</string>
+      <string>Ok</string>
      </property>
     </widget>
    </item>

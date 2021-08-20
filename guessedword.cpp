@@ -131,6 +131,8 @@ void guessedWord::on_textEditorBtn_clicked()
         {
             wordsFlux << ui->tableWidget_3->item(i,0)->text().toStdString() << ";" << ui->tableWidget_3->item(i,1)->text().toStdString() << ";" << ui->tableWidget_3->item(i,2)->text().toStdString() <<std::endl;
         }
+
+        QMessageBox::information(this, "Backup created", "The backup file with the list of guessed words has been created.");
     }
 
     else
