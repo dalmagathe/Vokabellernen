@@ -58,6 +58,10 @@ private slots:
 
     void on_btnAdd_2_clicked();
 
+    void on_btnCleartranslate_clicked();
+
+    void on_btnClearWordAdd_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;

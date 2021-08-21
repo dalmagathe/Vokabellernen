@@ -967,7 +967,7 @@ background-position:center center;</string>
 }</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="btnClearAdd">
+       <widget class="QPushButton" name="btnClearWordAdd">
         <property name="geometry">
          <rect>
           <x>381</x>
@@ -995,8 +995,7 @@ QPushButton:pressed {
 QPushButton:hover
 {
 	background-color: rgb(156, 156, 0);
-}
-</string>
+}</string>
         </property>
         <property name="text">
          <string>Clear</string>
@@ -1012,7 +1011,7 @@ QPushButton:hover
        <zorder>addEnglishWord</zorder>
        <zorder>addFrenchWord</zorder>
        <zorder>addGermanWord</zorder>
-       <zorder>btnClearAdd</zorder>
+       <zorder>btnClearWordAdd</zorder>
       </widget>
       <widget class="QWidget" name="checkPage">
        <widget class="QLabel" name="label_20">
@@ -1774,44 +1773,6 @@ background-position:center center;</string>
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="label_16">
-        <property name="geometry">
-         <rect>
-          <x>650</x>
-          <y>100</y>
-          <width>255</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-	font: 87 10pt &quot;Arial Black&quot;;
-}</string>
-        </property>
-        <property name="text">
-         <string>French Word</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="germanPluralForm">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>140</y>
-          <width>255</width>
-          <height>30</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
-    border-width: 2px;
-    border-style: solid;
-    border-color:rgb(85, 170, 0);
-}</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_14">
         <property name="geometry">
          <rect>
@@ -1854,21 +1815,25 @@ background-position:center center;</string>
          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
         </property>
        </widget>
-       <widget class="QLineEdit" name="pluralForm">
+       <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>380</x>
-          <y>140</y>
+          <x>650</x>
+          <y>100</y>
           <width>255</width>
-          <height>30</height>
+          <height>24</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLineEdit {
-    border-width: 2px;
-    border-style: solid;
-    border-color:rgb(85, 170, 0);
+         <string notr="true">QLabel {
+	font: 87 10pt &quot;Arial Black&quot;;
 }</string>
+        </property>
+        <property name="text">
+         <string>French Word</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="frenchPluralForm">
@@ -1888,7 +1853,47 @@ background-position:center center;</string>
 }</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="pluralForm">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>140</y>
+          <width>255</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(85, 170, 0);
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="germanPluralForm">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>140</y>
+          <width>255</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border-width: 2px;
+    border-style: solid;
+    border-color:rgb(85, 170, 0);
+}</string>
+        </property>
+       </widget>
        <zorder>label_22</zorder>
+       <zorder>label_14</zorder>
+       <zorder>label_15</zorder>
+       <zorder>label_16</zorder>
+       <zorder>frenchPluralForm</zorder>
+       <zorder>pluralForm</zorder>
+       <zorder>germanPluralForm</zorder>
        <zorder>btnGenerateNounPlural</zorder>
        <zorder>btnCheckPlural</zorder>
        <zorder>btnClearPlural</zorder>

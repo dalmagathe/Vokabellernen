@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 {
     ui->setupUi(this);
 
+    this->setFixedSize(QSize(953, 385));
+
     remove("D:/words.txt");
 
     //Connection to the database
@@ -207,14 +209,6 @@ void MainWindow::on_btnAdd_clicked()
     }
 }
 
-void MainWindow::on_btnAdd_2_clicked()
-{
-    ui->addEnglishWord->clear();
-    ui->addFrenchWord->clear();
-    ui->addGermanWord->clear();
-    ui->addArticle->clear();
-    ui->addPluralForm->clear();
-}
 
 
 //**************GUESS TRANSLATION PAGE**************//
@@ -554,4 +548,14 @@ void MainWindow::on_pushButton_clicked()
 
     guessedWord *guessedWordWindow = new guessedWord(translationVector, articleVector, pluralVector, this);
     guessedWordWindow->exec();
+}
+
+
+void MainWindow::on_btnClearWordAdd_clicked()
+{
+    ui->addEnglishWord->clear();
+    ui->addFrenchWord->clear();
+    ui->addGermanWord->clear();
+    ui->addArticle->clear();
+    ui->addPluralForm->clear();
 }
