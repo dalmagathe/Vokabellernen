@@ -28,8 +28,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->groupBoxArticle->setChecked(false);
     ui->statusbar->showMessage("");
     ui->statusbar->addPermanentWidget(ui->labelStatusBar, 1);
-    ui->labelStatusBar->setText("");
-
 }
 
 MainWindow::~MainWindow()

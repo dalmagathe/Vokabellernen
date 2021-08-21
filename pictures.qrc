@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/mainwindow">
+        <file>cerveau7.PNG</file>
+        <file>cerveau8.PNG</file>
+        <file>cerveau9.PNG</file>
+        <file>cerveau10.PNG</file>
+        <file>cerveau11.PNG</file>
+        <file>halfcerveau11.PNG</file>
+        <file>half2cerveau11.PNG</file>
+    </qresource>
+</RCC>
