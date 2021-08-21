@@ -3,4 +3,7 @@
         <file>cerveau11.PNG</file>
         <file>half2cerveau11.PNG</file>
     </qresource>
+    <qresource prefix="/answer">
+        <file>emoji.png</file>
+    </qresource>
 </RCC>

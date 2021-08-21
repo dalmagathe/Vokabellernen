@@ -109,35 +109,48 @@ void guessedWord::resizeEvent(QResizeEvent *)
 
 void guessedWord::on_textEditorBtn_clicked()
 {
-    QString directory_Name = QFileDialog::getExistingDirectory(this, "Open a directory", "C://");
-    getNameBackup *nameBackupFileWindow = new getNameBackup(this);
-    nameBackupFileWindow->exec();
-
-    std::ofstream wordsFlux(directory_Name.toStdString() +"/"+ nameBackupFileWindow->get_nameFile().toStdString() + ".txt", std::ios::app);
-
-    if(wordsFlux)
+    if(ui->tableWidget->rowCount() != 0 || ui->tableWidget_2->rowCount() != 0 || ui->tableWidget_3->rowCount() != 0)
     {
-        for(int i = 0; i < ui->tableWidget->rowCount(); i++)
-        {
-            wordsFlux << ui->tableWidget->item(i,0)->text().toStdString() << ";" << ui->tableWidget->item(i,1)->text().toStdString() << ";" << ui->tableWidget->item(i,2)->text().toStdString() <<std::endl;
-        }
+        QString directory_Name = QFileDialog::getExistingDirectory(this, "Open a directory", "C://");
+        getNameBackup *nameBackupFileWindow = new getNameBackup(this);
+        nameBackupFileWindow->exec();
 
-        for(int i = 0; i < ui->tableWidget_2->rowCount(); i++)
+        if(QDir(directory_Name).exists(nameBackupFileWindow->get_nameFile()+ ".txt"))
         {
-            wordsFlux << ui->tableWidget_2->item(i,0)->text().toStdString() << ";" << ui->tableWidget_2->item(i,1)->text().toStdString() << ";" << ui->tableWidget_2->item(i,2)->text().toStdString() <<std::endl;
+            QMessageBox::warning(this, "ERROR", "The file already exists.");
         }
-
-        for(int i = 0; i < ui->tableWidget_3->rowCount(); i++)
+        else
         {
-            wordsFlux << ui->tableWidget_3->item(i,0)->text().toStdString() << ";" << ui->tableWidget_3->item(i,1)->text().toStdString() << ";" << ui->tableWidget_3->item(i,2)->text().toStdString() <<std::endl;
-        }
+            std::ofstream wordsFlux(directory_Name.toStdString() +"/"+ nameBackupFileWindow->get_nameFile().toStdString() + ".txt", std::ios::app);
+            if(wordsFlux)
+            {
+                for(int i = 0; i < ui->tableWidget->rowCount(); i++)
+                {
+                    wordsFlux << ui->tableWidget->item(i,0)->text().toStdString() << ";" << ui->tableWidget->item(i,1)->text().toStdString() << ";" << ui->tableWidget->item(i,2)->text().toStdString() <<std::endl;
+                }
 
-        QMessageBox::information(this, "Backup created", "The backup file with the list of guessed words has been created.");
+                for(int i = 0; i < ui->tableWidget_2->rowCount(); i++)
+                {
+                    wordsFlux << ui->tableWidget_2->item(i,0)->text().toStdString() << ";" << ui->tableWidget_2->item(i,1)->text().toStdString() << ";" << ui->tableWidget_2->item(i,2)->text().toStdString() <<std::endl;
+                }
+
+                for(int i = 0; i < ui->tableWidget_3->rowCount(); i++)
+                {
+                    wordsFlux << ui->tableWidget_3->item(i,0)->text().toStdString() << ";" << ui->tableWidget_3->item(i,1)->text().toStdString() << ";" << ui->tableWidget_3->item(i,2)->text().toStdString() <<std::endl;
+                }
+
+                QMessageBox::information(this, "Backup created", "The backup file with the list of guessed words has been created.");
+            }
+
+            else
+            {
+                QMessageBox::warning(this, "ERROR", "The file has not been created.");
+            }
+        }
     }
-
     else
     {
-        std::cout << "ERREUR: Impossible d'ouvrir le fichier." << std::endl;
+        QMessageBox::information(this, "Impossible", "No words were guessed. The backup file is therefore not created.");
     }
 
 }
