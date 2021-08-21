@@ -8,11 +8,7 @@ Answer::Answer(const QString frenchBDD, QString germanBDD, QString englishBDD, Q
     std::cout << frenchBDD.toStdString() << std::endl;
     std::cout << germanBDD.toStdString() << std::endl;
     std::cout << englishBDD.toStdString() << std::endl;
-    //for(int i(0); i < 11; i++)
-    //{
-     //   wordList[i] = code[i];
-     //   std::cout<<"word" <<wordList[i].toStdString()<<std::endl;
-    //}
+
 }
 
 Answer::Answer(const QString frenchBDD, const QString germanBDD, const QString englishBDD, const QString articleBDD, const QString pluralBDD, QWidget *parent) : QDialog(parent), ui(new Ui::Answer), frenchBDD(frenchBDD), germanBDD(germanBDD), englishBDD(englishBDD), articleBDD(articleBDD), pluralBDD(pluralBDD)

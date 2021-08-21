@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->groupBoxArticle->setChecked(false);
     ui->statusbar->showMessage("");
     ui->statusbar->addPermanentWidget(ui->labelStatusBar, 1);
+    ui->labelStatusBar->setText("");
 }
 
 MainWindow::~MainWindow()
@@ -300,14 +301,8 @@ void MainWindow::on_btnCheckTranslate_clicked()
             }
             else
             {
-                std::cout << "Avant" << wordList[1].toStdString() << std::endl;
-                //Answer *answerWindow = new Answer(wordList, this);
                 Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], this);
                 answerWindow->exec();
-                //Answer answerWindow;
-                //answerWindow.setModal(true);
-                //answerWindow.exec();
-                //QMessageBox::information(this, "Result", "Try again ! ");
             }
         }
         else
@@ -369,8 +364,6 @@ void MainWindow::on_btnCheckArticle_clicked()
         if(wordList[wordIdList::articleBDD] == wordList[wordIdList::articleUSER] && wordList[wordIdList::frenchBDD] == wordList[wordIdList::frenchUSER])
         {
             QMessageBox::information(this, "Result", "Correct translation");
-            ui->articleTranslation->clear();
-            ui->frenchArticleTranslation->clear();
             fichier(wordList[wordIdList::germanBDD]);
             articleVector.push_back(positionNoun);
             clearList();
@@ -379,7 +372,6 @@ void MainWindow::on_btnCheckArticle_clicked()
         {
             Answer *answerWindow = new Answer(wordList[wordIdList::frenchBDD], wordList[wordIdList::germanBDD], wordList[wordIdList::englishBDD], wordList[wordIdList::articleBDD], wordList[wordIdList::pluralBDD], this);
             answerWindow->exec();
-            //QMessageBox::information(this, "Result", "Fail");
         }
     }
     else
@@ -479,8 +471,6 @@ void MainWindow::on_btnCheckPlural_clicked()
         if(wordList[wordIdList::pluralUSER] == wordList[wordIdList::pluralBDD] && wordList[wordIdList::frenchUSER] == wordList[wordIdList::frenchBDD])
         {
             QMessageBox::information(this, "Result", "Correct translation");
-            ui->pluralForm->clear();
-            ui->frenchPluralForm->clear();
             pluralVector.push_back(positionPlural);
             clearList();
         }
