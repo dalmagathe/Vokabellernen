@@ -56,6 +56,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_btnAdd_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase database;

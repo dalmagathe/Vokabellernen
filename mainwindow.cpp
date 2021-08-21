@@ -207,7 +207,7 @@ void MainWindow::on_btnAdd_clicked()
     }
 }
 
-void MainWindow::on_btnClearAdd_clicked()
+void MainWindow::on_btnAdd_2_clicked()
 {
     ui->addEnglishWord->clear();
     ui->addFrenchWord->clear();
@@ -215,6 +215,7 @@ void MainWindow::on_btnClearAdd_clicked()
     ui->addArticle->clear();
     ui->addPluralForm->clear();
 }
+
 
 //**************GUESS TRANSLATION PAGE**************//
 //Allow to indicate if the user want to translate in french/english or in german
