@@ -117,7 +117,8 @@ void guessedWord::on_textEditorBtn_clicked()
         {
             getNameBackup *nameBackupFileWindow = new getNameBackup(this);
             nameBackupFileWindow->exec();
-            if (nameBackupFileWindow->result() != 0)
+            std::cout << "RESULT" << nameBackupFileWindow->result() << std::endl;
+            if (nameBackupFileWindow->get_nameFile().toStdString() != "")
             {
                 if(QDir(directory_Name).exists(nameBackupFileWindow->get_nameFile()+ ".txt"))
                 {
