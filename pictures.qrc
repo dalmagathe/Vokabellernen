@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/windowsBackground">
+        <file>Pictures/BackgroundMainWindow.PNG</file>
+        <file>Pictures/BackgroundSubWindow.PNG</file>
+    </qresource>
+    <qresource prefix="/emoji">
+        <file>Pictures/EmojiFail.png</file>
+    </qresource>
+    <qresource prefix="/icon"/>
+    <qresource prefix="/">
+        <file>Pictures/Icon.ico</file>
+    </qresource>
+    <qresource prefix="/con"/>
+</RCC>
